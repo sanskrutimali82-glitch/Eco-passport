@@ -196,8 +196,11 @@ let currentMode="login";
 let currentUser=null;
 
 function getUsers(){
-try{return JSON.parse(localStorage.getItem("ecoUsers")||"{}")}
-catch(e){return {}}
+try{
+return JSON.parse(localStorage.getItem("ecoUsers")||"{}");
+}catch(e){
+return {};
+}
 }
 
 function getData(){
@@ -221,9 +224,11 @@ window.scrollTo(0,0);
 
 function showAuth(mode){
 currentMode=mode;
+
 document.getElementById("home").style.display="none";
 document.getElementById("dashboard").style.display="none";
 document.getElementById("auth").style.display="flex";
+
 document.getElementById("authTitle").textContent=mode==="login"?"Login":"Create Account";
 document.getElementById("authButton").textContent=mode==="login"?"Login":"Register";
 
@@ -232,12 +237,13 @@ nameField.style.display=mode==="login"?"none":"block";
 nameField.required=mode==="register";
 
 document.getElementById("switchText").innerHTML=
-mode==="login"?'Don\\'t have an account? <a id="switchLink">Register</a>':
+mode==="login"?"Don't have an account? <a id='switchLink'>Register</a>":
 'Already have an account? <a id="switchLink">Login</a>';
 
 document.getElementById("switchLink").onclick=function(){
 showAuth(mode==="login"?"register":"login");
 };
+
 window.scrollTo(0,0);
 }
 
@@ -250,7 +256,12 @@ let name=document.getElementById("name").value.trim();
 let users=getUsers();
 
 if(currentMode==="register"){
-if(!name){alert("Please enter your name");return;}
+
+if(!name){
+alert("Please enter your name");
+return;
+}
+
 if(users[email]){
 alert("This email is already registered. Please login.");
 showAuth("login");
@@ -259,14 +270,17 @@ return;
 
 users[email]={name:name,password:password};
 localStorage.setItem("ecoUsers",JSON.stringify(users));
+
 alert("Registration successful! Please login.");
 showAuth("login");
 
 }else{
+
 if(!users[email]||users[email].password!==password){
 alert("Account not found or incorrect password. Please register first.");
 return;
 }
+
 currentUser={email:email,name:users[email].name};
 openDashboard();
 }
@@ -276,7 +290,9 @@ function openDashboard(){
 document.getElementById("home").style.display="none";
 document.getElementById("auth").style.display="none";
 document.getElementById("dashboard").style.display="block";
+
 document.getElementById("welcomeMessage").textContent="🌿 Welcome, "+currentUser.name+"!";
+
 renderDashboard();
 window.scrollTo(0,0);
 }
@@ -287,15 +303,25 @@ showHome();
 }
 
 function calculateFootprint(){
-let km=Number(document.getElementById("travelKm").value);
-let electricity=Number(document.getElementById("electricity").value);
 
-if(km<0||electricity<0||!Number.isFinite(km)||!Number.isFinite(electricity)){
+let kmInput=document.getElementById("travelKm").value;
+let electricityInput=document.getElementById("electricity").value;
+
+if(kmInput===""||electricityInput===""){
+alert("Please enter both travel and electricity values.");
+return;
+}
+
+let km=Number(kmInput);
+let electricity=Number(electricityInput);
+
+if(!Number.isFinite(km)||!Number.isFinite(electricity)||km<0||electricity<0){
 alert("Please enter valid positive values.");
 return;
 }
 
 let total=(km*0.21)+(electricity*0.7);
+
 let data=getData();
 data.footprint=total;
 saveData(data);
@@ -303,10 +329,12 @@ saveData(data);
 let result=document.getElementById("footprintResult");
 result.textContent="Your estimated daily footprint is "+total.toFixed(2)+" kg CO₂.";
 result.style.display="block";
+
 renderDashboard();
 }
 
 function addActivity(){
+
 let selected=document.getElementById("activitySelect").value.split("|");
 let data=getData();
 
@@ -317,41 +345,47 @@ date:new Date().toLocaleDateString()
 });
 
 data.points+=Number(selected[1]);
+
 saveData(data);
 
 let message=document.getElementById("activityMessage");
 message.textContent="Great job! You earned "+selected[1]+" green points.";
 message.style.display="block";
+
 renderDashboard();
 }
 
 function renderDashboard(){
+
 let data=getData();
 
 document.getElementById("pointsValue").textContent=data.points;
 document.getElementById("pointsInline").textContent=data.points;
 document.getElementById("activityValue").textContent=data.activities.length;
-document.getElementById("footprintValue").textContent=data.footprint.toFixed(2);
+document.getElementById("footprintValue").textContent=Number(data.footprint).toFixed(2);
 
 let earned=[];
+
 if(data.activities.length>=1)earned.push("🌱 First Step");
 if(data.points>=50)earned.push("♻️ Green Starter");
 if(data.points>=100)earned.push("🌳 Eco Champion");
 if(data.points>=200)earned.push("🏆 Planet Protector");
 
 document.getElementById("badgeValue").textContent=earned.length;
+
 document.getElementById("badgeList").innerHTML=earned.length?
 earned.map(b=>'<span class="badge">'+b+'</span>').join(""):
 '<p>No badges yet. Complete activities to earn your first badge!</p>';
 
 let list=document.getElementById("activityList");
+
 list.innerHTML=data.activities.length?
 data.activities.slice(0,6).map(a=>'<li>🌿 '+a.name+' — <b>+'+a.points+' points</b><br><small>'+a.date+'</small></li>').join(""):
 '<li>No activities yet. Add your first activity!</li>';
 
 if(data.footprint>0){
 let result=document.getElementById("footprintResult");
-result.textContent="Your estimated daily footprint is "+data.footprint.toFixed(2)+" kg CO₂.";
+result.textContent="Your estimated daily footprint is "+Number(data.footprint).toFixed(2)+" kg CO₂.";
 result.style.display="block";
 }
 }

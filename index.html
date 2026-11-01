@@ -7,406 +7,77 @@
 <title>EcoPassport - Your Green Journey</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f4f8f4;color:#263b2d}
+header{background:#176b45;color:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+header h2{font-size:25px}
+nav{display:flex;flex-wrap:wrap;gap:18px}
+nav a{color:white;text-decoration:none;cursor:pointer;font-weight:bold}
+nav a:hover{color:#c9f5d5}
+button{background:#238653;color:white;border:none;padding:12px 22px;border-radius:7px;cursor:pointer;font-size:15px;font-weight:bold}
+button:hover{background:#176b45}
+.hero{min-height:430px;padding:90px 8%;display:flex;align-items:center;background:linear-gradient(90deg,rgba(0,40,20,.85),rgba(0,0,0,.25)),url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1600&q=80");background-size:cover;background-position:center;color:white}
+.hero-content{max-width:650px}
+.hero h1{font-size:48px;margin-bottom:20px}
+.hero p{font-size:18px;line-height:1.7;margin-bottom:25px}
+section{padding:55px 8%}
+.section-title{text-align:center;color:#176b45;margin-bottom:30px;font-size:30px}
+.about-text{max-width:850px;margin:auto;text-align:center;line-height:1.8;font-size:17px}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.feature-card{background:white;padding:25px;border-radius:12px;text-align:center;box-shadow:0 3px 12px rgba(0,0,0,.08)}
+.feature-card h3{color:#176b45;margin:12px 0}
+.feature-card p{line-height:1.6}
+.auth-page{display:none;min-height:75vh;align-items:center;justify-content:center;padding:35px 15px}
+.auth-box{background:white;width:100%;max-width:420px;padding:35px;border-radius:13px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.auth-box h2{text-align:center;color:#237347;margin-bottom:20px}
+input,select{width:100%;padding:13px;margin:8px 0 15px;border:1px solid #ccd8ce;border-radius:8px;font-size:15px}
+.auth-box button.submit-btn{width:100%;margin-top:5px}
+.auth-box p{text-align:center;margin-top:15px}
+.auth-box a{color:#237347;cursor:pointer;font-weight:bold}
 
-body{
-    background:#f4f8f4;
-    color:#263b2d;
-}
+/* HEROICONS PASSWORD TOGGLE */
+.password-box{position:relative;width:100%}
+.password-box input{width:100%;padding-right:50px}
+.password-toggle{position:absolute;right:9px;top:15px;width:34px;height:34px;padding:6px;background:transparent;color:#64748b;display:flex;align-items:center;justify-content:center}
+.password-toggle:hover{background:#f1f5f9;color:#176b45}
+.password-toggle svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.password-toggle .eye-off{display:none}
 
-header{
-    background:#176b45;
-    color:white;
-    padding:18px 7%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:12px;
-}
-
-header h2{
-    font-size:25px;
-}
-
-nav{
-    display:flex;
-    flex-wrap:wrap;
-    gap:18px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-nav a:hover{
-    color:#c9f5d5;
-}
-
-button{
-    background:#238653;
-    color:white;
-    border:none;
-    padding:12px 22px;
-    border-radius:7px;
-    cursor:pointer;
-    font-size:15px;
-    font-weight:bold;
-}
-
-button:hover{
-    background:#176b45;
-}
-
-.hero{
-    min-height:430px;
-    padding:90px 8%;
-    display:flex;
-    align-items:center;
-    background:linear-gradient(90deg,rgba(0,40,20,.85),rgba(0,0,0,.25)),
-    url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1600&q=80");
-    background-size:cover;
-    background-position:center;
-    color:white;
-}
-
-.hero-content{
-    max-width:650px;
-}
-
-.hero h1{
-    font-size:48px;
-    margin-bottom:20px;
-}
-
-.hero p{
-    font-size:18px;
-    line-height:1.7;
-    margin-bottom:25px;
-}
-
-section{
-    padding:55px 8%;
-}
-
-.section-title{
-    text-align:center;
-    color:#176b45;
-    margin-bottom:30px;
-    font-size:30px;
-}
-
-.about-text{
-    max-width:850px;
-    margin:auto;
-    text-align:center;
-    line-height:1.8;
-    font-size:17px;
-}
-
-.features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:22px;
-}
-
-.feature-card{
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    text-align:center;
-    box-shadow:0 3px 12px rgba(0,0,0,.08);
-}
-
-.feature-card h3{
-    color:#176b45;
-    margin:12px 0;
-}
-
-.feature-card p{
-    line-height:1.6;
-}
-
-.auth-page{
-    display:none;
-    min-height:75vh;
-    align-items:center;
-    justify-content:center;
-    padding:35px 15px;
-}
-
-.auth-box{
-    background:white;
-    width:100%;
-    max-width:420px;
-    padding:35px;
-    border-radius:13px;
-    box-shadow:0 4px 18px rgba(0,0,0,.1);
-}
-
-.auth-box h2{
-    text-align:center;
-    color:#237347;
-    margin-bottom:20px;
-}
-
-input,select{
-    width:100%;
-    padding:13px;
-    margin:8px 0 15px;
-    border:1px solid #ccd8ce;
-    border-radius:8px;
-    font-size:15px;
-}
-
-.auth-box button{
-    width:100%;
-    margin-top:5px;
-}
-
-.auth-box p{
-    text-align:center;
-    margin-top:15px;
-}
-
-.auth-box a{
-    color:#237347;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-/* PASSWORD EYE ICON */
-.password-box{
-    position:relative;
-    width:100%;
-}
-
-.password-box input{
-    width:100%;
-    padding-right:55px;
-}
-
-.password-toggle{
-    position:absolute;
-    right:8px;
-    top:15px;
-    width:auto;
-    margin:0;
-    padding:5px 9px;
-    background:transparent;
-    color:#176b45;
-    font-size:19px;
-}
-
-.password-toggle:hover{
-    background:transparent;
-}
-
-.page{
-    display:none;
-    padding:35px 7%;
-    min-height:75vh;
-}
-
-.page.active{
-    display:block;
-}
-
-.page-heading{
-    color:#176b45;
-    margin-bottom:25px;
-    text-align:center;
-}
-
-.welcome{
-    margin-bottom:25px;
-    text-align:center;
-}
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:18px;
-    margin-bottom:30px;
-}
-
-.stat-card{
-    background:white;
-    padding:25px;
-    text-align:center;
-    border-radius:12px;
-    box-shadow:0 3px 12px rgba(0,0,0,.07);
-}
-
-.stat-card h3{
-    color:#176b45;
-    margin-bottom:12px;
-}
-
-.stat-card p{
-    font-size:28px;
-    font-weight:bold;
-}
-
-.menu-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-    gap:20px;
-}
-
-.menu-card{
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    cursor:pointer;
-    text-align:center;
-    box-shadow:0 3px 12px rgba(0,0,0,.07);
-    transition:.2s;
-}
-
-.menu-card:hover{
-    transform:translateY(-5px);
-}
-
-.menu-card h3{
-    color:#176b45;
-    margin:12px 0;
-}
-
-.panel{
-    max-width:700px;
-    margin:auto;
-    background:white;
-    padding:30px;
-    border-radius:12px;
-    box-shadow:0 3px 12px rgba(0,0,0,.07);
-}
-
-.panel h3{
-    color:#176b45;
-    margin-bottom:18px;
-}
-
-.panel label{
-    display:block;
-    margin-top:10px;
-    font-weight:bold;
-}
-
-.panel input,.panel select{
-    margin-top:8px;
-}
-
-.result{
-    margin-top:20px;
-    padding:18px;
-    background:#e7f6eb;
-    border-radius:8px;
-    line-height:1.8;
-}
-
-.activity-list{
-    margin-top:25px;
-}
-
-.activity-item{
-    background:#f0f8f1;
-    padding:15px;
-    margin:10px 0;
-    border-radius:8px;
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-}
-
-.progress-bg{
-    width:100%;
-    height:18px;
-    background:#dce8de;
-    border-radius:20px;
-    overflow:hidden;
-    margin:15px 0;
-}
-
-.progress-fill{
-    height:100%;
-    background:#238653;
-    width:0%;
-    transition:.3s;
-}
-
-.badge-list{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
-    gap:15px;
-    margin-top:20px;
-}
-
-.badge-card{
-    background:#f0f8f1;
-    padding:20px;
-    text-align:center;
-    border-radius:10px;
-}
-
-.badge-card h3{
-    margin:10px 0;
-    color:#176b45;
-}
-
-.badge-card.locked{
-    opacity:.45;
-}
-
-.tip{
-    background:white;
-    padding:20px;
-    margin:15px 0;
-    border-left:5px solid #238653;
-    border-radius:8px;
-    line-height:1.6;
-}
-
-.back-btn{
-    margin-bottom:20px;
-}
-
-footer{
-    background:#145637;
-    color:white;
-    text-align:center;
-    padding:22px;
-    margin-top:30px;
-}
+.page{display:none;padding:35px 7%;min-height:75vh}
+.page.active{display:block}
+.page-heading{color:#176b45;margin-bottom:25px;text-align:center}
+.welcome{margin-bottom:25px;text-align:center}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;margin-bottom:30px}
+.stat-card{background:white;padding:25px;text-align:center;border-radius:12px;box-shadow:0 3px 12px rgba(0,0,0,.07)}
+.stat-card h3{color:#176b45;margin-bottom:12px}
+.stat-card p{font-size:28px;font-weight:bold}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}
+.menu-card{background:white;padding:25px;border-radius:12px;cursor:pointer;text-align:center;box-shadow:0 3px 12px rgba(0,0,0,.07);transition:.2s}
+.menu-card:hover{transform:translateY(-5px)}
+.menu-card h3{color:#176b45;margin:12px 0}
+.panel{max-width:700px;margin:auto;background:white;padding:30px;border-radius:12px;box-shadow:0 3px 12px rgba(0,0,0,.07)}
+.panel h3{color:#176b45;margin-bottom:18px}
+.panel label{display:block;margin-top:10px;font-weight:bold}
+.panel input,.panel select{margin-top:8px}
+.result{margin-top:20px;padding:18px;background:#e7f6eb;border-radius:8px;line-height:1.8}
+.activity-list{margin-top:25px}
+.activity-item{background:#f0f8f1;padding:15px;margin:10px 0;border-radius:8px;display:flex;justify-content:space-between;gap:10px}
+.progress-bg{width:100%;height:18px;background:#dce8de;border-radius:20px;overflow:hidden;margin:15px 0}
+.progress-fill{height:100%;background:#238653;width:0%;transition:.3s}
+.badge-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:15px;margin-top:20px}
+.badge-card{background:#f0f8f1;padding:20px;text-align:center;border-radius:10px}
+.badge-card h3{margin:10px 0;color:#176b45}
+.badge-card.locked{opacity:.45}
+.tip{background:white;padding:20px;margin:15px 0;border-left:5px solid #238653;border-radius:8px;line-height:1.6}
+.back-btn{margin-bottom:20px}
+footer{background:#145637;color:white;text-align:center;padding:22px;margin-top:30px}
 
 @media(max-width:600px){
-    header{
-        justify-content:center;
-    }
-
-    nav{
-        justify-content:center;
-    }
-
-    .hero h1{
-        font-size:34px;
-    }
-
-    .hero{
-        padding:65px 7%;
-    }
-
-    .auth-box{
-        padding:25px;
-    }
+header{justify-content:center}
+nav{justify-content:center}
+.hero h1{font-size:34px}
+.hero{padding:65px 7%}
+.auth-box{padding:25px}
 }
 </style>
 </head>
@@ -414,714 +85,459 @@ footer{
 <body>
 
 <header>
-    <h2>🌿 EcoPassport</h2>
-    <nav>
-        <a onclick="showHome()">Home</a>
-        <a onclick="showAuth('login')">Login</a>
-        <a onclick="showAuth('register')">Register</a>
-    </nav>
+<h2>🌿 EcoPassport</h2>
+<nav>
+<a onclick="showHome()">Home</a>
+<a onclick="showAuth('login')">Login</a>
+<a onclick="showAuth('register')">Register</a>
+</nav>
 </header>
 
 <!-- HOME PAGE -->
 <div id="homePage">
-
-    <div class="hero">
-        <div class="hero-content">
-            <h1>Your Green Journey Starts Here!</h1>
-            <p>
-                Track your carbon footprint, complete eco-friendly
-                activities and earn rewards while protecting our planet.
-            </p>
-            <button onclick="showAuth('register')">Get Started</button>
-        </div>
-    </div>
-
-    <section>
-        <h2 class="section-title">About EcoPassport</h2>
-        <p class="about-text">
-            EcoPassport is a platform designed to encourage people
-            to adopt sustainable habits. It helps users calculate
-            their carbon footprint, track green activities, earn
-            green points and understand how small actions can make
-            a big difference to the environment.
-        </p>
-    </section>
-
-    <section>
-        <h2 class="section-title">Our Features</h2>
-
-        <div class="features">
-            <div class="feature-card">
-                <h3>🌍 Carbon Footprint</h3>
-                <p>Calculate and understand your daily carbon emissions.</p>
-            </div>
-
-            <div class="feature-card">
-                <h3>♻️ Eco Activities</h3>
-                <p>Track your daily environment-friendly activities.</p>
-            </div>
-
-            <div class="feature-card">
-                <h3>🏆 Rewards & Badges</h3>
-                <p>Earn green points and unlock achievement badges.</p>
-            </div>
-
-            <div class="feature-card">
-                <h3>🌱 Environmental Tips</h3>
-                <p>Learn simple ways to protect the environment.</p>
-            </div>
-        </div>
-    </section>
+<div class="hero">
+<div class="hero-content">
+<h1>Your Green Journey Starts Here!</h1>
+<p>Track your carbon footprint, complete eco-friendly activities and earn rewards while protecting our planet.</p>
+<button onclick="showAuth('register')">Get Started</button>
+</div>
 </div>
 
-<!-- LOGIN / REGISTER PAGE -->
+<section>
+<h2 class="section-title">About EcoPassport</h2>
+<p class="about-text">
+EcoPassport is a platform designed to encourage people to adopt sustainable habits. It helps users calculate their carbon footprint, track green activities, earn green points and understand how small actions can make a big difference to the environment.
+</p>
+</section>
+
+<section>
+<h2 class="section-title">Our Features</h2>
+<div class="features">
+<div class="feature-card"><h3>🌍 Carbon Footprint</h3><p>Calculate and understand your daily carbon emissions.</p></div>
+<div class="feature-card"><h3>♻️ Eco Activities</h3><p>Track your daily environment-friendly activities.</p></div>
+<div class="feature-card"><h3>🏆 Rewards & Badges</h3><p>Earn green points and unlock achievement badges.</p></div>
+<div class="feature-card"><h3>🌱 Environmental Tips</h3><p>Learn simple ways to protect the environment.</p></div>
+</div>
+</section>
+</div>
+
+<!-- LOGIN / REGISTER -->
 <div class="auth-page" id="auth">
-    <div class="auth-box">
+<div class="auth-box">
+<h2 id="authTitle">Login</h2>
 
-        <h2 id="authTitle">Login</h2>
+<form id="authForm">
+<input id="name" type="text" placeholder="Full Name" style="display:none">
+<input id="email" type="email" placeholder="Email Address" required>
 
-        <form id="authForm">
+<div class="password-box">
+<input id="password" type="password" placeholder="Password" required minlength="4">
 
-            <input id="name" type="text"
-            placeholder="Full Name" style="display:none">
+<button type="button" class="password-toggle" onclick="togglePassword()" id="eyeIcon" aria-label="Show password">
+<svg class="eye-open" viewBox="0 0 24 24" aria-hidden="true">
+<path d="M2.5 12s3.5-7 9.5-7 9.5 7 9.5 7-3.5 7-9.5 7-9.5-7-9.5-7Z"/>
+<circle cx="12" cy="12" r="3"/>
+</svg>
 
-            <input id="email" type="email"
-            placeholder="Email Address" required>
-
-            <div class="password-box">
-                <input id="password" type="password"
-                placeholder="Password" required minlength="4">
-
-                <button type="button"
-                class="password-toggle"
-                onclick="togglePassword()"
-                id="eyeIcon"
-                aria-label="Show password">👁️</button>
-            </div>
-
-            <button type="submit" id="authButton">Login</button>
-        </form>
-
-        <p id="switchText"></p>
-        <p><a onclick="showHome()">← Back to Home</a></p>
-
-    </div>
+<svg class="eye-off" viewBox="0 0 24 24" aria-hidden="true">
+<path d="M3 3l18 18"/>
+<path d="M10.6 10.6a2 2 0 0 0 2.8 2.8"/>
+<path d="M9.9 5.2A10.8 10.8 0 0 1 12 5c6 0 9.5 7 9.5 7a16 16 0 0 1-3.1 3.9"/>
+<path d="M6.2 6.2C3.8 7.8 2.5 12 2.5 12s3.5 7 9.5 7c1.2 0 2.3-.3 3.3-.7"/>
+</svg>
+</button>
 </div>
 
-<!-- DASHBOARD PAGE -->
+<button type="submit" class="submit-btn" id="authButton">Login</button>
+</form>
+
+<p id="switchText"></p>
+<p><a onclick="showHome()">← Back to Home</a></p>
+</div>
+</div>
+
+<!-- DASHBOARD -->
 <div class="page" id="mainPage">
+<button class="back-btn" onclick="logout()">Logout</button>
+<h2 class="welcome" id="welcomeText">Welcome!</h2>
+<h2 class="page-heading">Your Dashboard</h2>
 
-    <button class="back-btn" onclick="logout()">Logout</button>
-
-    <h2 class="welcome" id="welcomeText">Welcome!</h2>
-    <h2 class="page-heading">Your Dashboard</h2>
-
-    <div class="stats">
-        <div class="stat-card">
-            <h3>🌱 Green Points</h3>
-            <p id="dashPoints">0</p>
-        </div>
-
-        <div class="stat-card">
-            <h3>♻️ Activities Completed</h3>
-            <p id="dashActivities">0</p>
-        </div>
-
-        <div class="stat-card">
-            <h3>🌍 CO₂ / Day</h3>
-            <p id="dashCarbon">0</p>
-        </div>
-
-        <div class="stat-card">
-            <h3>🏆 Badges Earned</h3>
-            <p id="dashBadges">0</p>
-        </div>
-    </div>
-
-    <h2 class="page-heading">Explore EcoPassport</h2>
-
-    <div class="menu-grid">
-
-        <div class="menu-card" onclick="showPage('footprintPage')">
-            <h3>🌍 Carbon Footprint</h3>
-            <p>Calculate your carbon emissions.</p>
-        </div>
-
-        <div class="menu-card" onclick="showPage('activitiesPage')">
-            <h3>♻️ Eco Activities</h3>
-            <p>Track your green activities.</p>
-        </div>
-
-        <div class="menu-card" onclick="showPage('rewardsPage')">
-            <h3>🏆 Rewards & Badges</h3>
-            <p>Check your points and achievements.</p>
-        </div>
-
-        <div class="menu-card" onclick="showPage('insightsPage')">
-            <h3>🌱 Environmental Insights</h3>
-            <p>Explore useful green tips.</p>
-        </div>
-
-    </div>
+<div class="stats">
+<div class="stat-card"><h3>🌱 Green Points</h3><p id="dashPoints">0</p></div>
+<div class="stat-card"><h3>♻️ Activities Completed</h3><p id="dashActivities">0</p></div>
+<div class="stat-card"><h3>🌍 CO₂ / Day</h3><p id="dashCarbon">0</p></div>
+<div class="stat-card"><h3>🏆 Badges Earned</h3><p id="dashBadges">0</p></div>
 </div>
 
-<!-- CARBON FOOTPRINT PAGE -->
+<h2 class="page-heading">Explore EcoPassport</h2>
+<div class="menu-grid">
+<div class="menu-card" onclick="showPage('footprintPage')"><h3>🌍 Carbon Footprint</h3><p>Calculate your carbon emissions.</p></div>
+<div class="menu-card" onclick="showPage('activitiesPage')"><h3>♻️ Eco Activities</h3><p>Track your green activities.</p></div>
+<div class="menu-card" onclick="showPage('rewardsPage')"><h3>🏆 Rewards & Badges</h3><p>Check your points and achievements.</p></div>
+<div class="menu-card" onclick="showPage('insightsPage')"><h3>🌱 Environmental Insights</h3><p>Explore useful green tips.</p></div>
+</div>
+</div>
+
+<!-- CARBON FOOTPRINT -->
 <div class="page" id="footprintPage">
-
-    <button class="back-btn" onclick="showPage('mainPage')">
-        ← Dashboard
-    </button>
-
-    <h2 class="page-heading">🌍 Carbon Footprint Calculator</h2>
-
-    <div class="panel">
-        <h3>Calculate Your Daily Carbon Footprint</h3>
-
-        <label>Daily Car Travel (Kilometers)</label>
-        <input type="number" id="carKm" min="0" placeholder="Enter kilometers">
-
-        <label>Daily Electricity Consumption (kWh)</label>
-        <input type="number" id="electricity" min="0" placeholder="Enter units">
-
-        <button onclick="calculateFootprint()">Calculate Footprint</button>
-
-        <div class="result" id="carbonResult">
-            Your carbon footprint result will appear here.
-        </div>
-    </div>
+<button class="back-btn" onclick="showPage('mainPage')">← Dashboard</button>
+<h2 class="page-heading">🌍 Carbon Footprint Calculator</h2>
+<div class="panel">
+<h3>Calculate Your Daily Carbon Footprint</h3>
+<label>Daily Car Travel (Kilometers)</label>
+<input type="number" id="carKm" min="0" placeholder="Enter kilometers">
+<label>Daily Electricity Consumption (kWh)</label>
+<input type="number" id="electricity" min="0" placeholder="Enter units">
+<button onclick="calculateFootprint()">Calculate Footprint</button>
+<div class="result" id="carbonResult">Your carbon footprint result will appear here.</div>
+</div>
 </div>
 
-<!-- ECO ACTIVITIES PAGE -->
+<!-- ECO ACTIVITIES -->
 <div class="page" id="activitiesPage">
-
-    <button class="back-btn" onclick="showPage('mainPage')">
-        ← Dashboard
-    </button>
-
-    <h2 class="page-heading">♻️ Eco Activities Tracker</h2>
-
-    <div class="panel">
-
-        <h3>Complete an Eco-Friendly Activity</h3>
-
-        <label>Select Activity</label>
-
-        <select id="activitySelect">
-            <option value="recycled">Recycled Waste (+10 Points)</option>
-            <option value="bottle">Used Reusable Bottle / Bag (+5 Points)</option>
-            <option value="walked">Walked or Cycled (+15 Points)</option>
-            <option value="tree">Planted a Tree (+20 Points)</option>
-            <option value="electricity">Saved Electricity (+10 Points)</option>
-            <option value="water">Saved Water (+10 Points)</option>
-        </select>
-
-        <button onclick="addActivity()">Add Activity</button>
-
-        <div class="result" id="activityMessage">
-            Complete activities and earn green points!
-        </div>
-
-        <div class="activity-list">
-            <h3>Activity History</h3>
-            <div id="activityHistory"></div>
-        </div>
-
-    </div>
+<button class="back-btn" onclick="showPage('mainPage')">← Dashboard</button>
+<h2 class="page-heading">♻️ Eco Activities Tracker</h2>
+<div class="panel">
+<h3>Complete an Eco-Friendly Activity</h3>
+<label>Select Activity</label>
+<select id="activitySelect">
+<option value="recycled">Recycled Waste (+10 Points)</option>
+<option value="bottle">Used Reusable Bottle / Bag (+5 Points)</option>
+<option value="walked">Walked or Cycled (+15 Points)</option>
+<option value="tree">Planted a Tree (+20 Points)</option>
+<option value="electricity">Saved Electricity (+10 Points)</option>
+<option value="water">Saved Water (+10 Points)</option>
+</select>
+<button onclick="addActivity()">Add Activity</button>
+<div class="result" id="activityMessage">Complete activities and earn green points!</div>
+<div class="activity-list">
+<h3>Activity History</h3>
+<div id="activityHistory"></div>
+</div>
+</div>
 </div>
 
-<!-- REWARDS PAGE -->
+<!-- REWARDS -->
 <div class="page" id="rewardsPage">
-
-    <button class="back-btn" onclick="showPage('mainPage')">
-        ← Dashboard
-    </button>
-
-    <h2 class="page-heading">🏆 Rewards & Badges</h2>
-
-    <div class="panel">
-
-        <h3>Your Green Points</h3>
-        <h2 id="rewardPoints">0 Points</h2>
-
-        <h3 style="margin-top:25px">Next Achievement</h3>
-        <p id="nextReward">Earn 50 points to unlock Green Starter.</p>
-
-        <div class="progress-bg">
-            <div class="progress-fill" id="rewardProgress"></div>
-        </div>
-
-        <h3>My Badges</h3>
-
-        <div class="badge-list" id="badgeList"></div>
-
-    </div>
+<button class="back-btn" onclick="showPage('mainPage')">← Dashboard</button>
+<h2 class="page-heading">🏆 Rewards & Badges</h2>
+<div class="panel">
+<h3>Your Green Points</h3>
+<h2 id="rewardPoints">0 Points</h2>
+<h3 style="margin-top:25px">Next Achievement</h3>
+<p id="nextReward">Earn 50 points to unlock Green Starter.</p>
+<div class="progress-bg"><div class="progress-fill" id="rewardProgress"></div></div>
+<h3>My Badges</h3>
+<div class="badge-list" id="badgeList"></div>
+</div>
 </div>
 
-<!-- ENVIRONMENTAL INSIGHTS PAGE -->
+<!-- ENVIRONMENTAL INSIGHTS -->
 <div class="page" id="insightsPage">
-
-    <button class="back-btn" onclick="showPage('mainPage')">
-        ← Dashboard
-    </button>
-
-    <h2 class="page-heading">🌱 Environmental Insights</h2>
-
-    <div class="panel">
-
-        <div class="tip">
-            <h3>🌳 Plant More Trees</h3>
-            Trees absorb carbon dioxide and help keep the air clean.
-        </div>
-
-        <div class="tip">
-            <h3>💧 Save Water</h3>
-            Turn off taps when not in use and avoid wasting water.
-        </div>
-
-        <div class="tip">
-            <h3>♻️ Recycle Waste</h3>
-            Separate dry and wet waste and recycle reusable materials.
-        </div>
-
-        <div class="tip">
-            <h3>🚲 Use Eco-Friendly Transport</h3>
-            Walk, cycle or use public transport whenever possible.
-        </div>
-
-        <div class="tip">
-            <h3>💡 Save Electricity</h3>
-            Switch off lights, fans and appliances when not needed.
-        </div>
-
-        <div class="tip">
-            <h3>🛍️ Avoid Single-Use Plastic</h3>
-            Carry reusable bags and bottles to reduce plastic waste.
-        </div>
-
-    </div>
+<button class="back-btn" onclick="showPage('mainPage')">← Dashboard</button>
+<h2 class="page-heading">🌱 Environmental Insights</h2>
+<div class="panel">
+<div class="tip"><h3>🌳 Plant More Trees</h3>Trees absorb carbon dioxide and help keep the air clean.</div>
+<div class="tip"><h3>💧 Save Water</h3>Turn off taps when not in use and avoid wasting water.</div>
+<div class="tip"><h3>♻️ Recycle Waste</h3>Separate dry and wet waste and recycle reusable materials.</div>
+<div class="tip"><h3>🚲 Use Eco-Friendly Transport</h3>Walk, cycle or use public transport whenever possible.</div>
+<div class="tip"><h3>💡 Save Electricity</h3>Switch off lights, fans and appliances when not needed.</div>
+<div class="tip"><h3>🛍️ Avoid Single-Use Plastic</h3>Carry reusable bags and bottles to reduce plastic waste.</div>
+</div>
 </div>
 
 <footer>
-    <p>© 2026 EcoPassport | Make Every Action Count for a Greener Planet 🌍</p>
+<p>© 2026 EcoPassport | Make Every Action Count for a Greener Planet 🌍</p>
 </footer>
 
 <script>
-
-// USER DATA
 let currentUser = localStorage.getItem("ecoCurrentUser") || "";
 
 function getUsers(){
-    return JSON.parse(localStorage.getItem("ecoUsers")) || [];
+return JSON.parse(localStorage.getItem("ecoUsers")) || [];
 }
 
 function saveUsers(users){
-    localStorage.setItem("ecoUsers", JSON.stringify(users));
+localStorage.setItem("ecoUsers",JSON.stringify(users));
 }
 
 function getUserData(){
-    if(!currentUser) return null;
-
-    let data = localStorage.getItem("ecoData_" + currentUser);
-
-    if(!data){
-        return {
-            points:0,
-            activities:[],
-            carbon:0
-        };
-    }
-
-    return JSON.parse(data);
+if(!currentUser)return null;
+let data=localStorage.getItem("ecoData_"+currentUser);
+return data?JSON.parse(data):{points:0,activities:[],carbon:0};
 }
 
 function saveUserData(data){
-    localStorage.setItem("ecoData_" + currentUser, JSON.stringify(data));
+localStorage.setItem("ecoData_"+currentUser,JSON.stringify(data));
 }
 
-// SHOW HOME
 function showHome(){
-    document.getElementById("homePage").style.display = "block";
-    document.getElementById("auth").style.display = "none";
-
-    document.querySelectorAll(".page").forEach(page=>{
-        page.classList.remove("active");
-    });
+document.getElementById("homePage").style.display="block";
+document.getElementById("auth").style.display="none";
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
 }
 
-// SHOW LOGIN OR REGISTER
 function showAuth(mode){
+document.getElementById("homePage").style.display="none";
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+document.getElementById("auth").style.display="flex";
 
-    document.getElementById("homePage").style.display = "none";
+let isRegister=mode==="register";
+document.getElementById("authTitle").textContent=isRegister?"Create Account":"Login";
+document.getElementById("authButton").textContent=isRegister?"Register":"Login";
+document.getElementById("name").style.display=isRegister?"block":"none";
+document.getElementById("name").required=isRegister;
+document.getElementById("authForm").dataset.mode=mode;
+document.getElementById("authForm").reset();
 
-    document.querySelectorAll(".page").forEach(page=>{
-        page.classList.remove("active");
-    });
+resetPasswordIcon();
 
-    document.getElementById("auth").style.display = "flex";
+document.getElementById("switchText").innerHTML=isRegister
+?"Already have an account? <a id='switchLink'>Login</a>"
+:"Don't have an account? <a id='switchLink'>Register</a>";
 
-    let isRegister = mode === "register";
-
-    document.getElementById("authTitle").textContent =
-        isRegister ? "Create Account" : "Login";
-
-    document.getElementById("authButton").textContent =
-        isRegister ? "Register" : "Login";
-
-    document.getElementById("name").style.display =
-        isRegister ? "block" : "none";
-
-    document.getElementById("name").required = isRegister;
-
-    document.getElementById("authForm").dataset.mode = mode;
-
-    document.getElementById("authForm").reset();
-
-    document.getElementById("password").type = "password";
-    document.getElementById("eyeIcon").textContent = "👁️";
-
-    document.getElementById("switchText").innerHTML =
-        isRegister
-        ? "Already have an account? <a id='switchLink'>Login</a>"
-        : "Don't have an account? <a id='switchLink'>Register</a>";
-
-    document.getElementById("switchLink").onclick = function(){
-        showAuth(isRegister ? "login" : "register");
-    };
+document.getElementById("switchLink").onclick=function(){
+showAuth(isRegister?"login":"register");
+};
 }
 
-// SHOW / HIDE PASSWORD
+// PASSWORD VISIBILITY
 function togglePassword(){
+let password=document.getElementById("password");
+let eye=document.getElementById("eyeIcon");
 
-    let password = document.getElementById("password");
-    let eye = document.getElementById("eyeIcon");
+let showing=password.type==="password";
+password.type=showing?"text":"password";
 
-    if(password.type === "password"){
-        password.type = "text";
-        eye.textContent = "🙈";
-        eye.setAttribute("aria-label","Hide password");
-    }else{
-        password.type = "password";
-        eye.textContent = "👁️";
-        eye.setAttribute("aria-label","Show password");
-    }
+eye.querySelector(".eye-open").style.display=showing?"none":"block";
+eye.querySelector(".eye-off").style.display=showing?"block":"none";
+eye.setAttribute("aria-label",showing?"Hide password":"Show password");
+}
+
+function resetPasswordIcon(){
+let password=document.getElementById("password");
+let eye=document.getElementById("eyeIcon");
+
+password.type="password";
+eye.querySelector(".eye-open").style.display="block";
+eye.querySelector(".eye-off").style.display="none";
+eye.setAttribute("aria-label","Show password");
 }
 
 // LOGIN / REGISTER
 document.getElementById("authForm").addEventListener("submit",function(e){
+e.preventDefault();
 
-    e.preventDefault();
+let mode=this.dataset.mode;
+let name=document.getElementById("name").value.trim();
+let email=document.getElementById("email").value.trim().toLowerCase();
+let password=document.getElementById("password").value;
+let users=getUsers();
 
-    let mode = this.dataset.mode;
-    let name = document.getElementById("name").value.trim();
-    let email = document.getElementById("email").value.trim().toLowerCase();
-    let password = document.getElementById("password").value;
+if(mode==="register"){
+if(users.some(user=>user.email===email)){
+alert("This email is already registered. Please login.");
+return;
+}
 
-    let users = getUsers();
+users.push({name:name,email:email,password:password});
+saveUsers(users);
 
-    if(mode === "register"){
+localStorage.setItem("ecoData_"+email,JSON.stringify({
+points:0,activities:[],carbon:0
+}));
 
-        if(users.some(user=>user.email === email)){
-            alert("This email is already registered. Please login.");
-            return;
-        }
+alert("Registration successful! Please login.");
+showAuth("login");
 
-        users.push({
-            name:name,
-            email:email,
-            password:password
-        });
+}else{
+let user=users.find(user=>user.email===email&&user.password===password);
 
-        saveUsers(users);
-
-        localStorage.setItem("ecoData_" + email,JSON.stringify({
-            points:0,
-            activities:[],
-            carbon:0
-        }));
-
-        alert("Registration successful! Please login.");
-        showAuth("login");
-
-    }else{
-
-        let user = users.find(user=>
-            user.email === email && user.password === password
-        );
-
-        if(user){
-
-            currentUser = email;
-            localStorage.setItem("ecoCurrentUser",email);
-
-            openDashboard();
-
-        }else{
-            alert("Invalid email or password. Please try again.");
-        }
-    }
+if(user){
+currentUser=email;
+localStorage.setItem("ecoCurrentUser",email);
+openDashboard();
+}else{
+alert("Invalid email or password. Please try again.");
+}
+}
 });
 
-// OPEN DASHBOARD
 function openDashboard(){
+document.getElementById("homePage").style.display="none";
+document.getElementById("auth").style.display="none";
 
-    document.getElementById("homePage").style.display = "none";
-    document.getElementById("auth").style.display = "none";
+showPage("mainPage");
 
-    showPage("mainPage");
-
-    let user = getUsers().find(u=>u.email === currentUser);
-
-    document.getElementById("welcomeText").textContent =
-        "Welcome, " + (user ? user.name : "User") + "!";
-
-    renderDashboard();
+let user=getUsers().find(u=>u.email===currentUser);
+document.getElementById("welcomeText").textContent="Welcome, "+(user?user.name:"User")+"!";
+renderDashboard();
 }
 
-// SHOW SECTIONS
 function showPage(pageId){
+document.getElementById("homePage").style.display="none";
+document.getElementById("auth").style.display="none";
 
-    document.getElementById("homePage").style.display = "none";
-    document.getElementById("auth").style.display = "none";
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+document.getElementById(pageId).classList.add("active");
 
-    document.querySelectorAll(".page").forEach(page=>{
-        page.classList.remove("active");
-    });
+renderDashboard();
 
-    document.getElementById(pageId).classList.add("active");
-
-    renderDashboard();
-
-    if(pageId === "activitiesPage"){
-        renderActivities();
-    }
-
-    if(pageId === "rewardsPage"){
-        renderRewards();
-    }
+if(pageId==="activitiesPage")renderActivities();
+if(pageId==="rewardsPage")renderRewards();
 }
 
-// LOGOUT
 function logout(){
-
-    currentUser = "";
-    localStorage.removeItem("ecoCurrentUser");
-
-    showHome();
-
-    alert("You have logged out successfully.");
+currentUser="";
+localStorage.removeItem("ecoCurrentUser");
+showHome();
+alert("You have logged out successfully.");
 }
 
-// CARBON FOOTPRINT CALCULATOR
+// CARBON CALCULATOR
 function calculateFootprint(){
+let carInput=document.getElementById("carKm").value;
+let electricityInput=document.getElementById("electricity").value;
 
-    let carKm = Number(document.getElementById("carKm").value);
-    let electricity = Number(document.getElementById("electricity").value);
+let carKm=Number(carInput);
+let electricity=Number(electricityInput);
 
-    if(
-        document.getElementById("carKm").value === "" ||
-        document.getElementById("electricity").value === "" ||
-        carKm < 0 || electricity < 0
-    ){
-        alert("Please enter valid values.");
-        return;
-    }
+if(carInput===""||electricityInput===""||carKm<0||electricity<0){
+alert("Please enter valid values.");
+return;
+}
 
-    let carbon = (carKm * 0.21) + (electricity * 0.7);
+let carbon=(carKm*0.21)+(electricity*0.7);
+let data=getUserData();
+data.carbon=Number(carbon.toFixed(2));
+saveUserData(data);
 
-    let data = getUserData();
+document.getElementById("carbonResult").innerHTML=
+"<h3>Your Daily Carbon Footprint</h3><strong>"+carbon.toFixed(2)+
+" kg CO₂/day</strong><p>Keep adopting eco-friendly habits to reduce your footprint!</p>";
 
-    data.carbon = Number(carbon.toFixed(2));
-
-    saveUserData(data);
-
-    document.getElementById("carbonResult").innerHTML =
-        "<h3>Your Daily Carbon Footprint</h3>" +
-        "<strong>" + carbon.toFixed(2) +
-        " kg CO₂/day</strong>" +
-        "<p>Keep adopting eco-friendly habits to reduce your footprint!</p>";
-
-    renderDashboard();
+renderDashboard();
 }
 
 // ACTIVITY POINTS
-const activityDetails = {
-    recycled:{name:"Recycled Waste",points:10},
-    bottle:{name:"Used Reusable Bottle / Bag",points:5},
-    walked:{name:"Walked or Cycled",points:15},
-    tree:{name:"Planted a Tree",points:20},
-    electricity:{name:"Saved Electricity",points:10},
-    water:{name:"Saved Water",points:10}
+const activityDetails={
+recycled:{name:"Recycled Waste",points:10},
+bottle:{name:"Used Reusable Bottle / Bag",points:5},
+walked:{name:"Walked or Cycled",points:15},
+tree:{name:"Planted a Tree",points:20},
+electricity:{name:"Saved Electricity",points:10},
+water:{name:"Saved Water",points:10}
 };
 
-// ADD ACTIVITY
 function addActivity(){
+let selected=document.getElementById("activitySelect").value;
+let activity=activityDetails[selected];
+let data=getUserData();
 
-    let selected = document.getElementById("activitySelect").value;
-    let activity = activityDetails[selected];
-
-    let data = getUserData();
-
-    data.activities.push({
-        name:activity.name,
-        points:activity.points,
-        date:new Date().toLocaleDateString()
-    });
-
-    data.points += activity.points;
-
-    saveUserData(data);
-
-    document.getElementById("activityMessage").innerHTML =
-        "🎉 Great job! You earned <strong>" +
-        activity.points + " green points</strong>!";
-
-    renderActivities();
-    renderDashboard();
-}
-
-// RENDER ACTIVITY HISTORY
-function renderActivities(){
-
-    let data = getUserData();
-
-    let history = document.getElementById("activityHistory");
-
-    if(!history) return;
-
-    if(data.activities.length === 0){
-        history.innerHTML = "<p>No activities completed yet.</p>";
-        return;
-    }
-
-    history.innerHTML = data.activities.slice().reverse().map(item=>
-        `<div class="activity-item">
-            <span>🌱 ${item.name}<br>
-            <small>${item.date}</small></span>
-            <strong>+${item.points} Points</strong>
-        </div>`
-    ).join("");
-}
-
-// BADGE CALCULATION
-function getBadges(data){
-
-    let count = data.activities.length;
-    let points = data.points;
-
-    return [
-        {
-            name:"First Step",
-            icon:"🌱",
-            unlocked:count >= 1,
-            requirement:"Complete 1 activity"
-        },
-        {
-            name:"Green Starter",
-            icon:"🌿",
-            unlocked:points >= 50,
-            requirement:"Earn 50 points"
-        },
-        {
-            name:"Eco Champion",
-            icon:"🏆",
-            unlocked:points >= 100,
-            requirement:"Earn 100 points"
-        },
-        {
-            name:"Planet Protector",
-            icon:"🌍",
-            unlocked:points >= 200,
-            requirement:"Earn 200 points"
-        }
-    ];
-}
-
-// RENDER REWARDS
-function renderRewards(){
-
-    let data = getUserData();
-
-    document.getElementById("rewardPoints").textContent =
-        data.points + " Points";
-
-    let badges = getBadges(data);
-
-    document.getElementById("badgeList").innerHTML =
-        badges.map(badge=>
-            `<div class="badge-card ${badge.unlocked ? "" : "locked"}">
-                <h2>${badge.icon}</h2>
-                <h3>${badge.name}</h3>
-                <p>${badge.unlocked ? "Unlocked ✓" : "Locked 🔒"}</p>
-                <small>${badge.requirement}</small>
-            </div>`
-        ).join("");
-
-    let next = 50;
-    if(data.points >= 200){
-        next = 200;
-    }else if(data.points >= 100){
-        next = 200;
-    }else if(data.points >= 50){
-        next = 100;
-    }
-
-    document.getElementById("nextReward").textContent =
-        data.points >= 200
-        ? "Congratulations! You unlocked all badges!"
-        : "Earn " + (next-data.points) +
-          " more points to reach the next achievement.";
-
-    let progress = Math.min((data.points/200)*100,100);
-
-    document.getElementById("rewardProgress").style.width =
-        progress + "%";
-}
-
-// UPDATE DASHBOARD
-function renderDashboard(){
-
-    if(!currentUser) return;
-
-    let data = getUserData();
-
-    if(!data) return;
-
-    let badges = getBadges(data);
-
-    document.getElementById("dashPoints").textContent =
-        data.points;
-
-    document.getElementById("dashActivities").textContent =
-        data.activities.length;
-
-    document.getElementById("dashCarbon").textContent =
-        Number(data.carbon || 0).toFixed(2);
-
-    document.getElementById("dashBadges").textContent =
-        badges.filter(badge=>badge.unlocked).length;
-}
-
-// RESTORE LOGIN IF USER IS ALREADY LOGGED IN
-window.addEventListener("load",function(){
-
-    let savedUser = localStorage.getItem("ecoCurrentUser");
-
-    if(savedUser){
-
-        let userExists = getUsers().some(user=>user.email === savedUser);
-
-        if(userExists){
-            currentUser = savedUser;
-            openDashboard();
-            return;
-        }
-
-        localStorage.removeItem("ecoCurrentUser");
-    }
-
-    showHome();
+data.activities.push({
+name:activity.name,
+points:activity.points,
+date:new Date().toLocaleDateString()
 });
 
+data.points+=activity.points;
+saveUserData(data);
+
+document.getElementById("activityMessage").innerHTML=
+"Great job! You earned <strong>"+activity.points+" green points</strong>!";
+
+renderActivities();
+renderDashboard();
+}
+
+function renderActivities(){
+let data=getUserData();
+let history=document.getElementById("activityHistory");
+if(!history)return;
+
+if(data.activities.length===0){
+history.innerHTML="<p>No activities completed yet.</p>";
+return;
+}
+
+history.innerHTML=data.activities.slice().reverse().map(item=>
+`<div class="activity-item">
+<span>${item.name}<br><small>${item.date}</small></span>
+<strong>+${item.points} Points</strong>
+</div>`
+).join("");
+}
+
+// BADGES
+function getBadges(data){
+let count=data.activities.length;
+let points=data.points;
+
+return[
+{name:"First Step",icon:"🌱",unlocked:count>=1,requirement:"Complete 1 activity"},
+{name:"Green Starter",icon:"🌿",unlocked:points>=50,requirement:"Earn 50 points"},
+{name:"Eco Champion",icon:"🏆",unlocked:points>=100,requirement:"Earn 100 points"},
+{name:"Planet Protector",icon:"🌍",unlocked:points>=200,requirement:"Earn 200 points"}
+];
+}
+
+function renderRewards(){
+let data=getUserData();
+document.getElementById("rewardPoints").textContent=data.points+" Points";
+
+let badges=getBadges(data);
+
+document.getElementById("badgeList").innerHTML=badges.map(badge=>
+`<div class="badge-card ${badge.unlocked?"":"locked"}">
+<h2>${badge.icon}</h2>
+<h3>${badge.name}</h3>
+<p>${badge.unlocked?"Unlocked ✓":"Locked 🔒"}</p>
+<small>${badge.requirement}</small>
+</div>`
+).join("");
+
+let next=data.points<50?50:data.points<100?100:200;
+
+document.getElementById("nextReward").textContent=
+data.points>=200?"Congratulations! You unlocked all badges!":
+"Earn "+(next-data.points)+" more points to reach the next achievement.";
+
+document.getElementById("rewardProgress").style.width=
+Math.min((data.points/200)*100,100)+"%";
+}
+
+// DASHBOARD
+function renderDashboard(){
+if(!currentUser)return;
+let data=getUserData();
+if(!data)return;
+
+let badges=getBadges(data);
+
+document.getElementById("dashPoints").textContent=data.points;
+document.getElementById("dashActivities").textContent=data.activities.length;
+document.getElementById("dashCarbon").textContent=Number(data.carbon||0).toFixed(2);
+document.getElementById("dashBadges").textContent=badges.filter(b=>b.unlocked).length;
+}
+
+// RESTORE SESSION
+window.addEventListener("load",function(){
+let savedUser=localStorage.getItem("ecoCurrentUser");
+
+if(savedUser){
+let userExists=getUsers().some(user=>user.email===savedUser);
+
+if(userExists){
+currentUser=savedUser;
+openDashboard();
+return;
+}
+
+localStorage.removeItem("ecoCurrentUser");
+}
+
+showHome();
+});
 </script>
 
 </body>

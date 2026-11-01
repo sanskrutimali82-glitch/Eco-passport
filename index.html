@@ -1,1 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoPassport | Green Living</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      color: #183b2b;
+      background: #f5f9f4;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 8%;
+      background: white;
+    }
+    .logo { font-size: 25px; font-weight: bold; color: #237347; }
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #183b2b;
+    }
+    .hero {
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      padding: 60px 10%;
+      background: linear-gradient(90deg, #103c2cdd, #103c2c55),
+      url('https://images.unsplash.com/photo-1448375240586-882707db888b?w=1600')
+      center/cover;
+      color: white;
+    }
+    .hero-content { max-width: 650px; }
+    .hero h1 { font-size: 58px; margin: 20px 0; }
+    .hero p { font-size: 18px; line-height: 1.7; }
+    button {
+      padding: 13px 25px;
+      border: none;
+      border-radius: 7px;
+      background: #3d995e;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 25px;
+    }
+    section { padding: 65px 10%; text-align: center; }
+    h2 { font-size: 32px; margin-bottom: 18px; }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 22px;
+      margin-top: 35px;
+    }
+    .feature {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px #00000010;
+    }
+    .feature h3 { margin: 15px 0; color: #237347; }
+    .feature p { line-height: 1.6; color: #52665a; }
+    footer {
+      background: #183b2b;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+    @media(max-width:600px) {
+      header { padding: 18px 5%; }
+      nav a { margin-left: 8px; font-size: 13px; }
+      .hero h1 { font-size: 40px; }
+    }
+  </style>
+</head>
+<body>
 
+  <header>
+    <div class="logo">🌿 EcoPassport</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div class="hero-content">
+      <h4>YOUR JOURNEY TO A GREENER PLANET</h4>
+      <h1>Small Steps.<br>Greener Future.</h1>
+      <p>
+        Track your carbon footprint, record eco-friendly activities
+        and make every action count towards a sustainable future.
+      </p>
+      <button onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">
+        Explore EcoPassport →
+      </button>
+    </div>
+  </div>
+
+  <section id="about">
+    <h2>About EcoPassport</h2>
+    <p>
+      EcoPassport helps individuals understand their environmental
+      impact and build greener everyday habits.
+    </p>
+  </section>
+
+  <section id="features">
+    <h2>Explore Our Features</h2>
+    <div class="features">
+      <div class="feature">
+        <h1>🌍</h1>
+        <h3>Track Footprint</h3>
+        <p>Monitor your daily environmental impact and understand your carbon footprint.</p>
+      </div>
+      <div class="feature">
+        <h1>🌱</h1>
+        <h3>Eco Activities</h3>
+        <p>Record tree plantation, recycling and other eco-friendly activities.</p>
+      </div>
+      <div class="feature">
+        <h1>🏆</h1>
+        <h3>Earn Badges</h3>
+        <p>Celebrate your green achievements and reach new levels.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 EcoPassport | Make Every Step Greener 🌿
+  </footer>
+
+</body>
+</html>

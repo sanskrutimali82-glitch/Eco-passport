@@ -5,23 +5,52 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EcoPassport | Green Living</title>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{font-family:Arial,sans-serif;color:#183b2b;background:#f5f9f4}
-header{display:flex;justify-content:space-between;align-items:center;padding:22px 8%;background:white}
-.logo{font-size:25px;font-weight:bold;color:#237347}
-nav a{margin-left:20px;text-decoration:none;color:#183b2b;cursor:pointer}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+background:#176b45;
+color:white;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 3px 12px #0002;
+}
+
+.logo{font-size:25px;font-weight:bold;color:white}
+
+nav{display:flex;align-items:center;gap:25px}
+nav a{
+text-decoration:none;
+color:white;
+cursor:pointer;
+font-weight:bold;
+transition:0.3s;
+}
+nav a:hover{color:#b9f6ca}
+
 button{padding:13px 25px;border:0;border-radius:7px;background:#32965a;color:white;cursor:pointer;font-size:16px;margin-top:15px}
+button:hover{background:#237347}
+
 .hero{min-height:520px;display:flex;align-items:center;padding:60px 10%;background:linear-gradient(90deg,#103c2cdd,#103c2c55),url('https://images.unsplash.com/photo-1448375240586-882707db888b?w=1600') center/cover;color:white}
 .hero-content{max-width:650px}
 .hero h1{font-size:58px;margin:20px 0}
 .hero p{font-size:18px;line-height:1.7}
-section{padding:65px 10%;text-align:center}
+
+section{padding:65px 10%;text-align:center;scroll-margin-top:85px}
 h2{font-size:32px;margin-bottom:18px}
 .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;margin-top:35px}
 .feature,.auth-box,.dashboard-box{background:white;padding:30px;border-radius:12px;box-shadow:0 4px 15px #00000010}
 .feature h3{margin:15px 0;color:#237347}
 .feature p{line-height:1.6;color:#52665a}
+
 .auth-page{min-height:75vh;display:none;align-items:center;justify-content:center;padding:40px 15px}
 .auth-box{width:100%;max-width:420px;text-align:left}
 .auth-box h2{text-align:center;color:#237347}
@@ -29,22 +58,35 @@ h2{font-size:32px;margin-bottom:18px}
 .auth-box button{width:100%}
 .auth-box p{text-align:center;margin-top:18px}
 .auth-box a{color:#237347;cursor:pointer}
+
 .dashboard{display:none;padding:50px 8%;min-height:75vh}
 .dashboard h1{margin-bottom:20px;color:#237347}
 .dashboard-box{margin-top:25px;line-height:2}
+
 footer{background:#183b2b;color:white;text-align:center;padding:25px}
-@media(max-width:600px){header{padding:18px 5%}nav a{margin-left:8px;font-size:13px}.hero h1{font-size:40px}}
+
+@media(max-width:600px){
+header{padding:15px 4%;flex-direction:column;gap:14px}
+.logo{font-size:22px}
+nav{gap:14px;flex-wrap:wrap;justify-content:center}
+nav a{font-size:13px}
+.hero h1{font-size:40px}
+.hero{min-height:450px}
+}
 </style>
 </head>
+
 <body>
 
 <div id="home">
 <header>
 <div class="logo">🌿 EcoPassport</div>
 <nav>
+<a href="#home">Home</a>
 <a href="#about">About</a>
 <a href="#features">Features</a>
 <a onclick="showAuth('login')">Login</a>
+<a onclick="showAuth('register')">Register</a>
 </nav>
 </header>
 
@@ -149,5 +191,6 @@ alert("Account not found or incorrect password. Please register first.");
 
 function logout(){showHome();}
 </script>
+
 </body>
 </html>
